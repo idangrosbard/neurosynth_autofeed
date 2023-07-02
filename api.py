@@ -1,4 +1,4 @@
-from master1 import Master
+from master import Master
 from parsers import AssociationsParser, StudiesParser
 from web_querier import Querier
 import pandas as pd
