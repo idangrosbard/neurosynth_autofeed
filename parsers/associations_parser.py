@@ -25,6 +25,9 @@ class AssociationsParser(Parser):
         for assoc in associations:
             df['Name'].append(assoc[0])
 
+            if len(assoc) != len(cols):
+                raise IndexError('Association length does not match column length')
+            
             # Iterate through each numeric value in the association
             for i in range(1, len(assoc)):
                 curr_val = assoc[i]
