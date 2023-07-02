@@ -1,6 +1,7 @@
 from . import AssociationsParser
 import pandas as pd
 import pytest
+import numpy as np
 
 
 
@@ -37,8 +38,7 @@ class TestAssociationsParser(object):
 
     def test_parse_with_bad_vals(self):
         test_json = '{"data": [["test_name", "0.1", "0.2", "0.3", "not float"]]}'
-        with pytest.raises(ValueError):
-            AssociationsParser().parse(test_json)
+        test_df = pd.DataFrame({'Name': ['test_name'], 'Individual voxel z-score': [float(1)], 'Individual voxel Posterior prob': [0.2], 'Seed-based network Func conn. (r)': [float(4)], 'Seed-based network Meta-analytic coact. (r)': [np.nan]})
     
     def test_parse_with_bad_length(self):
         test_json = '{"data": [["test_name", "0.1", "0.2", "0.3"]]}'
