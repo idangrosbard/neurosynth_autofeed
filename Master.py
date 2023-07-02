@@ -1,8 +1,8 @@
 import numpy as np
-from verifier import Verifier
 from web_querier import Querier
 from parsers import Parser
 import pandas as pd
+
 
 class Master:
     """Synchronizes the query process for a given set of coordinates.
@@ -26,8 +26,7 @@ class Master:
         process_coordinates(coordinates): Processes the coordinates and returns a merged dataframe.
     """
 
-    def __init__(self, verifier: Verifier, query: Querier, parser: Parser):
-        self.verifier = verifier
+    def __init__(self, query: Querier, parser: Parser):
         self.query = query
         self.parser = parser
     
@@ -44,15 +43,14 @@ class Master:
         dataframes = []
         
         for coord in coordinates:
-            if not self.verifier.verify_coordinates(coord):
-                query_result = self.query.query(coord)
-                parsed_data = self.parser.parse(query_result)
-                
-                parsed_data['x'] = coord[0]
-                parsed_data['y'] = coord[1]
-                parsed_data['z'] = coord[2]
-                
-                dataframes.append(parsed_data)
+            query_result = self.query.query(coord[0], coord[1], coord[2])
+            parsed_data = self.parser.parse(query_result)
+            
+            parsed_data['x'] = coord[0]
+            parsed_data['y'] = coord[1]
+            parsed_data['z'] = coord[2]
+            
+            dataframes.append(parsed_data)
         
         if dataframes:
             merged_dataframe = pd.concat(dataframes)
