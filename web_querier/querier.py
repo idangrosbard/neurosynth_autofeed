@@ -33,8 +33,3 @@ class Querier(object):
             """
         return requests.get(self.url.format(x,y,z)).json()
     
-
-if __name__ == '__main__':
-    q = Querier("https://neurosynth.org/api/locations/{}_{}_{}_1/compare/")
-    q = Querier("https://neurosynth.org/api/locations/{}_{}_{}_1/studies/")
-    print(q.query(0,0,0))
