@@ -49,6 +49,7 @@ class Master:
             parsed_data['x'] = coord[0]
             parsed_data['y'] = coord[1]
             parsed_data['z'] = coord[2]
+            parsed_data['x, y, z'] = f'{coord[0]}, {coord[1]}, {coord[2]}'
             
             dataframes.append(parsed_data)
         
