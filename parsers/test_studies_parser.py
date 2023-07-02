@@ -1,5 +1,6 @@
 from . import StudiesParser
 import pandas as pd
+import pytest
 
 
 class TestStudiesParser:
@@ -24,3 +25,20 @@ class TestStudiesParser:
             'Journal': ['Psychiatry research', 'Human brain mapping']
         })
         assert answer.equals(true_answer)
+    
+    def test_no_studies(self):
+        p = StudiesParser()
+        inpt = '{"data": []}'
+        answer = p.parse(inpt)
+        true_answer = pd.DataFrame({
+            'Study': [],
+            'Authors': [],
+            'Journal': []
+        })
+        assert answer.equals(true_answer)
+
+    def test_parse_with_bad_length(self):
+        p = StudiesParser()
+        inpt = '{"data": [["<a href=/studies/23146251/>Structural brain features of borderline personality and bipolar disorders.</a>","Rossi R, Pievani M, Lorenzi M, Boccardi M, Beneduce R, Bignotti S, Borsci G, Cotelli M, Giannakopoulos P, Magni LR, Rillosi L, Rosini S, Rossi G, Frisoni GB"]]}'
+        with pytest.raises(IndexError):
+            p.parse(inpt)

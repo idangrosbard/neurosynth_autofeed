@@ -8,17 +8,18 @@ class AssociationsParser(Parser):
     Parses the JSON data returned by the query to a pandas dataframe.
     """
 
-    def parse(self, json: str) -> pd.DataFrame:
+    def parse(self, data: str) -> pd.DataFrame:
         """Parse json to pandas DF row
         
         Args:
             json (str): json to parse
         Returns:
             pd.DataFrame: pandas DF row"""
-        associations = json.loads(json)['data']
+        
+        associations = json.loads(data)['data']
 
         df = {'Name': [], 'Individual voxel z-score': [], 'Individual voxel Posterior prob': [], 'Seed-based network Func conn. (r)': [], 'Seed-based network Meta-analytic coact. (r)':[]}
-        associations = json.loads(json)['data']
+        
         for assoc in associations:
             df['Name'].append(assoc[0])
             df['Individual voxel z-score'].append(float(assoc[1]))
