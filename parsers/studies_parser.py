@@ -25,7 +25,7 @@ class StudiesParser(Parser):
     def __init__(self):
         self.parser = Parser()
 
-    def parse_data(self, data: str) -> pd.DataFrame:
+    def parse(self, data: str) -> pd.DataFrame:
         """Parse the JSON data and return a pandas dataframe.
 
         Args:
