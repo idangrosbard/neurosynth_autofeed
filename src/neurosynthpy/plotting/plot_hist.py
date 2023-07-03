@@ -1,14 +1,16 @@
 import matplotlib.pyplot as plt
 
-def plot_association_hist(associated_regions_list, z_scores_list, threshold=0.05):
+def plot_association_hist(associated_regions_list: list, z_scores_list: list, threshold: float = 0.05) -> plt.Figure:
     '''
-    the function plots a histogram of the associated regions and functions based on the z-scores of the associations
-    input:
-        associated_regions_list: a list of associated regions and functions
-        z_scores_list: a list of z-scores of the associations
-        threshold: the threshold to filter out the associations that are not significant
-    output:
-        a histogram of the associated regions and functions based on the z-scores of the associations
+    A function that plots a histogram of the associated regions and functions based on the z-scores of the associations.
+
+    Args:
+        associated_regions_list (list): A list of associated regions and functions
+        z_scores_list (list): A list of z-scores of the associations
+        threshold (float): The threshold to filter out the associations that are not significant (default is 0.05)
+
+    Returns:
+        figure (plt.Figure): A histogram of the associated regions and functions based on the z-scores of the associations
     '''
 
     # Use the threshold to filter out the associations that are not significant
