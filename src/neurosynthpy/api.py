@@ -1,8 +1,8 @@
-from master import Master
-from parsers import AssociationsParser, StudiesParser
-from web_querier import Querier
+from src.neurosynthpy.master import Master
+from src.neurosynthpy.parsers import AssociationsParser, StudiesParser
+from src.neurosynthpy.web_querier import Querier
 import pandas as pd
-import consts
+from src.neurosynthpy import consts
 from typing import Dict
 
 

@@ -1,4 +1,4 @@
-from web_querier import Querier
+from src.neurosynthpy.web_querier import Querier
 import pytest
 
 

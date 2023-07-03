@@ -1,6 +1,6 @@
 import numpy as np
-from web_querier import Querier
-from parsers import Parser
+from src.neurosynthpy.web_querier import Querier
+from src.neurosynthpy.parsers import Parser
 import pandas as pd
 
 
