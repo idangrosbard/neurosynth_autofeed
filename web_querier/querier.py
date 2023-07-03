@@ -31,5 +31,5 @@ class Querier(object):
         Returns:
             json: json object containing query results.
             """
-        return requests.get(self.url.format(x,y,z)).json()
+        return requests.get(self.url.format(x,y,z)).text
     
