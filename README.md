@@ -14,6 +14,7 @@ Automatically query neurosynth via python with Neurosynthpy
 - [Dependencies](#installation)
 - [Usage](#usage)
 - [Features](#features)
+- [Functions](#functions)
 - [Limitations](#limitations)
 - [Contact](#contact)
 
@@ -55,7 +56,7 @@ Dependencies that you'll need to set up before running our project:
 
 After installation you can use `api.get` to quary your coordinates.
 
-Specifiy `associations` or `studies` to get the information you want.
+Specifiy `associations` or `studies` to get the metadata you want.
 
   
 
@@ -67,30 +68,13 @@ Specifiy `associations` or `studies` to get the information you want.
     studies = api.get(np.array([[-10,-10,-10], [0,0,0], [10,10,10]]), 'studies')
       
 
-Next follow this code to plot and visualize the data extracted:
+Next follow this code to plot and visualize the data extracted, for example:
 
   
 
     from neurosynthpy import plotting
     
     plotting.plot_by_target(df, df.groupby('Study').count().sort_values('x, y, z')['x, y, z'].index[-1], 'Study')
-
-  
-## Functions
-
-**Query:**
-| Function | Header 2 |
-| -------- | -------- | 
-| Row 1,   | Data     |
-| Row 2    |          |
-| Row 3    |          |
-
-**Plots:**
-| Function | Explanation |
-| -------- | -------- | 
-| plot_association_hist(associated_regions_list: list z_scores_list: list, threshold: float = 0.05) -> plt Figure   | A function that plots a histogram of the associated regions and functions based on the z-scores of the associations.    |
-| plot_by_target(df: pd.DataFrame, target: str, col_name: str)  |     A function that receives VOIs of a target association/paper and plots the relevant VOIs.     |
-| plot_anatomical_voi(voi_coords: np.ndarray) -> Any   |    Plot the coordinates on an MNI glass brain.      |
 
 ## Features
 
@@ -103,6 +87,23 @@ Next follow this code to plot and visualize the data extracted:
 -  **Parser**: parse json data to panda DataFrames.
 
 -  **Ploter**: Create different plots of the data extracted.
+  
+## Functions
+
+Automated functions for the user:
+
+**Query:**
+| Function | Explanation 2 |
+| -------- | -------- | 
+| api.get(coordinates, type('associations' or 'studies'))  | Quaring Neurosynth datebase -> pandas.DataFrame   |
+
+**Plots:**
+| Function | Explanation |
+| -------- | -------- | 
+| plot_association_hist(associated_regions_list: list z_scores_list: list, threshold: float = 0.05) -> plt Figure   | A function that plots a histogram of the associated regions and functions based on the z-scores of the associations.    |
+| plot_by_target(df: pd.DataFrame, target: str, col_name: str)  |     A function that receives VOIs of a target association/paper and plots the relevant VOIs.     |
+| plot_anatomical_voi(voi_coords: np.ndarray) -> Any   |    Plot the coordinates on an MNI glass brain.      |
+
 
 
 ## Limitations
