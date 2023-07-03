@@ -1,7 +1,8 @@
 import numpy as np
 from typing import List
 
-class Validator():
+
+class Validator:
     """
     Class for validating the input data
     """
@@ -19,7 +20,6 @@ class Validator():
 
         return True
 
-
     def validate_length(self, coordinates: np.array) -> bool:
         """
         Checks if there are 3 coordinates for each point
@@ -32,7 +32,6 @@ class Validator():
             raise ValueError("There must be 3 coordinates for each point")
 
         return True
-    
 
     def validate_type(self, coordinates: np.array) -> bool:
         """
@@ -46,7 +45,6 @@ class Validator():
             raise ValueError("Coordinates must be in a NumPy array")
 
         return True
-    
 
     def validate_not_empty(self, coordinates: np.array) -> bool:
         """
@@ -60,7 +58,6 @@ class Validator():
             raise ValueError("Coordinates must not be empty")
 
         return True
-    
 
     def validate_range(self, coordinates: np.array) -> bool:
         """
@@ -82,7 +79,6 @@ class Validator():
             raise ValueError("Coordinates must be in the range of the board")
 
         return True
-    
 
     def test_coordinates(self, coordinates: np.array) -> bool:
         """
@@ -92,15 +88,13 @@ class Validator():
         Returns:
             True if the coordinates are valid, False otherwise
         """
-        if not Validator.validate_type(coordinates):
+        if not self.validate_type(coordinates):
             raise ValueError("Coordinates must be in a NumPy array")
-        if not Validator.validate_not_empty(coordinates):
+        if not self.validate_not_empty(coordinates):
             raise ValueError("Coordinates must not be empty")
-        if not Validator.validate_integers(coordinates):
+        if not self.validate_integers(coordinates):
             raise ValueError("There must be 3 coordinates for each point")
-        if not Validator.validate_integers(coordinates):
-            raise ValueError("Coordinates must be integers")
-        if not Validator.validate_range(coordinates):
+        if not self.validate_range(coordinates):
             raise ValueError("Coordinates must be in the range of the board")
         print("Coordinates are valid - all tests passed")
 
