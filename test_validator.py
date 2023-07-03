@@ -45,4 +45,3 @@ def test_validate_range(validator):
 
 if __name__ == "__main__":
     pytest.main()
-
