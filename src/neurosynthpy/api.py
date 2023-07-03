@@ -1,8 +1,9 @@
-from src.neurosynthpy.master import Master
-from src.neurosynthpy.parsers import AssociationsParser, StudiesParser
-from src.neurosynthpy.web_querier import Querier
+from .master import Master
+from .parsers import AssociationsParser, StudiesParser
+from .web_querier import Querier
+from .validator import Validator
 import pandas as pd
-from src.neurosynthpy import consts
+from . import consts
 from typing import Dict
 
 
@@ -15,8 +16,8 @@ class API(object):
     
 
 def get(coords: pd.DataFrame, data_type: str) -> pd.DataFrame:
-    studies_master = Master(Querier(consts.STUDIES_URL), StudiesParser())
-    associations_master = Master(Querier(consts.ASSOCIATIONS_URL), AssociationsParser())
+    studies_master = Master(Querier(consts.STUDIES_URL), StudiesParser(), Validator())
+    associations_master = Master(Querier(consts.ASSOCIATIONS_URL), AssociationsParser(), Validator())
 
     if data_type == 'studies':
         return studies_master.process_coordinates(coords)

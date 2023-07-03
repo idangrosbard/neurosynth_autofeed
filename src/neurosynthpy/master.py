@@ -1,7 +1,7 @@
 import numpy as np
-from src.neurosynthpy.web_querier import Querier
-from src.neurosynthpy.parsers import Parser
-from src.neurosynthpy.validator import Validator
+from .web_querier import Querier
+from .parsers import Parser
+from .validator import Validator
 import pandas as pd
 
 
