@@ -66,8 +66,6 @@ Specifiy `associations` or `studies` to get the information you want.
 
     from neurosynthpy import api, plotting`
     
-      
-    
     associations = api.get(np.array([[-10,-10,-10], [0,0,0], [10,10,10]]), 'associations')
     
     studies = api.get(np.array([[-10,-10,-10], [0,0,0], [10,10,10]]), 'studies')
@@ -112,3 +110,6 @@ If you want to reach us for any questions or collaborations related to the proje
 - yuvalnavon@mail.tau.ac.il (YuvNavon)
 
 - orrachels@mail.tau.ac.il (ORachelS)
+
+
+![](drake_meme.jpeg)
