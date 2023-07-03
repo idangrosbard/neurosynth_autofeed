@@ -108,7 +108,8 @@ For example:
 
 ## Limitations
 
-Right now our beta version doesn't support very large datasets (for querying multiple voxels) in oder to reduce number of http requests on the server so we don't recommand using the package for more than 1000 coordinates but stay tuned!
+Right now our beta version doesn't support very large datasets (querying lsrge number of voxels). 
+In oder to reduce the number of http requests on the server, so we don't recommand using the package for more than 1,000 coordinates - but stay tuned!
 
 
 ## Contact
