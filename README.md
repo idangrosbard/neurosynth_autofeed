@@ -30,16 +30,16 @@ Dependencies that you'll need to set up before running our project:
 After installation you can use `api.get` to quary your coordinates.
 Specifiy `associations` or `studies` to get the information you want.
 
-`from neurosynthpy import api, plotting
+`from neurosynthpy import api, plotting`
 
-associations = api.get(np.array([[-10,-10,-10], [0,0,0], [10,10,10]]), 'associations')
-studies = api.get(np.array([[-10,-10,-10], [0,0,0], [10,10,10]]), 'studies')` 
+`associations = api.get(np.array([[-10,-10,-10], [0,0,0], [10,10,10]]), 'associations')`
+`studies = api.get(np.array([[-10,-10,-10], [0,0,0], [10,10,10]]), 'studies')` 
 
 Next follow this code to plot and visualize the data extracted:
 
-`from neurosynthpy import plotting
+`from neurosynthpy import plotting`
 
-plotting.plot_by_target(df, df.groupby('Study').count().sort_values('x, y, z')['x, y, z'].index[-1], 'Study')`
+`plotting.plot_by_target(df, df.groupby('Study').count().sort_values('x, y, z')['x, y, z'].index[-1], 'Study')`
 
 ## Features
 
@@ -52,10 +52,10 @@ plotting.plot_by_target(df, df.groupby('Study').count().sort_values('x, y, z')['
 
 If you want to reach us for any questions or collaborations related to the project, talk to us!
 
-idangrosbard@mail.tau.ac.il (idg7, idangrosberg)
-yohayzvi@gmail.com (YohayZvi)
-yuvalnavon@mail.tau.ac.il (YuvNavon)
-orrachels@mail.tau.ac.il (ORachelS)
+idangrosbard@mail.tau.ac.il (idg7, idangrosberg)\n
+yohayzvi@gmail.com (YohayZvi)\n
+yuvalnavon@mail.tau.ac.il (YuvNavon)\n
+orrachels@mail.tau.ac.il (ORachelS)\n
 
 
 ![meme](Images\drake_meme.jpeg)
