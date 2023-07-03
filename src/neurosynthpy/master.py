@@ -1,6 +1,7 @@
 import numpy as np
 from src.neurosynthpy.web_querier import Querier
 from src.neurosynthpy.parsers import Parser
+from src.neurosynthpy.validator import Validator
 import pandas as pd
 
 
@@ -26,9 +27,10 @@ class Master:
         process_coordinates(coordinates): Processes the coordinates and returns a merged dataframe.
     """
 
-    def __init__(self, query: Querier, parser: Parser):
+    def __init__(self, query: Querier, parser: Parser, validator: Validator):
         self.query = query
         self.parser = parser
+        self.validator = validator
     
     def process_coordinates(self, coordinates: np.ndarray) -> pd.DataFrame:
         """Process the array of coordinates and return a merged dataframe.
@@ -41,20 +43,23 @@ class Master:
                 Returns None if no valid dataframes are obtained.
         """
         dataframes = []
-        
-        for coord in coordinates:
-            query_result = self.query.query(coord[0], coord[1], coord[2])
-            parsed_data = self.parser.parse(query_result)
+
+        if self.validator.test_coordinates(coordinates):
+            for coord in coordinates:
+                query_result = self.query.query(coord[0], coord[1], coord[2])
+                parsed_data = self.parser.parse(query_result)
+                
+                parsed_data['x'] = coord[0]
+                parsed_data['y'] = coord[1]
+                parsed_data['z'] = coord[2]
+                parsed_data['x, y, z'] = f'{coord[0]}, {coord[1]}, {coord[2]}'
+                
+                dataframes.append(parsed_data)
             
-            parsed_data['x'] = coord[0]
-            parsed_data['y'] = coord[1]
-            parsed_data['z'] = coord[2]
-            parsed_data['x, y, z'] = f'{coord[0]}, {coord[1]}, {coord[2]}'
-            
-            dataframes.append(parsed_data)
-        
-        if dataframes:
-            merged_dataframe = pd.concat(dataframes)
-            return merged_dataframe
+            if dataframes:
+                merged_dataframe = pd.concat(dataframes)
+                return merged_dataframe
+            else:
+                return None
         else:
-            return None
+            raise ValueError('Invalid coordinates.')
