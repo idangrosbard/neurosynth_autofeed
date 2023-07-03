@@ -62,12 +62,11 @@ Specifiy `associations` or `studies` to get the information you want.
 
   
 
-`
 
-    from neurosynthpy import api, plotting`
+
+    from neurosynthpy import api, plotting
     
     associations = api.get(np.array([[-10,-10,-10], [0,0,0], [10,10,10]]), 'associations')
-    
     studies = api.get(np.array([[-10,-10,-10], [0,0,0], [10,10,10]]), 'studies')
       
 
@@ -85,13 +84,13 @@ Next follow this code to plot and visualize the data extracted:
 
   
 
--  *Validator*: validation of the input coordinates.
+-  **Validator**: validation of the input coordinates.
 
--  *Querier*: quary the coordinates for the associations and studies data.
+-  **Querier**: quary the coordinates for the associations and studies data.
 
--  *Parser*: parse json data to panda DataFrames.
+-  **Parser**: parse json data to panda DataFrames.
 
--  *Ploter*: Create different plots of the data extracted.
+-  **Ploter**: Create different plots of the data extracted.
 
   
 
@@ -112,4 +111,8 @@ If you want to reach us for any questions or collaborations related to the proje
 - orrachels@mail.tau.ac.il (ORachelS)
 
 
+
+
+
+<div align="center">
 ![](drake_meme.jpeg)
