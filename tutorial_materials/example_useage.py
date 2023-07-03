@@ -19,7 +19,11 @@ if __name__ == '__main__':
     # convert to MNI space using affine
     voxels_coords_MNI = nib.affines.apply_affine(nifti_file.affine, voxels_coords)
     print(voxels_coords_MNI)
+    
+    # as ints
+    voxels_coords_MNI = np.round(voxels_coords_MNI).astype(int)
+
 
     # save voxels coordinates to a csv file 
-    np.savetxt('voxels_coords_MNI.csv', voxels_coords_MNI, delimiter=',')
+    np.savetxt(r'.\tutorial_materials\voxels_coords_MNI.csv', voxels_coords_MNI, delimiter=',')
 
