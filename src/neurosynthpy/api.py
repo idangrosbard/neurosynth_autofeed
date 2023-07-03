@@ -3,6 +3,7 @@ from .parsers import AssociationsParser, StudiesParser
 from .web_querier import Querier
 from .validator import Validator
 import pandas as pd
+import numpy as np
 from . import consts
 from typing import Dict
 
@@ -15,7 +16,7 @@ class API(object):
         return self.masters[master_name].process_coordinates(coords)
     
 
-def get(coords: pd.DataFrame, data_type: str) -> pd.DataFrame:
+def get(coords: np.array, data_type: str) -> pd.DataFrame:
     studies_master = Master(Querier(consts.STUDIES_URL), StudiesParser(), Validator())
     associations_master = Master(Querier(consts.ASSOCIATIONS_URL), AssociationsParser(), Validator())
 
