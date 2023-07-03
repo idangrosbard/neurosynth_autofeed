@@ -3,13 +3,23 @@ import numpy as np
 import matplotlib.pyplot as plt
 import nibabel as nib
 from nilearn import datasets
+from typing import Any
 
-def plot_anatomical_voi(voi_coords):
+
+def plot_anatomical_voi(voi_coords: np.ndarray) -> Any:
+    """Plot the coordinates on an MNI glass brain.
+    
+    Args:
+        voi_coords : numpy array
+            The coordinates of the VOI in MNI space.
+    
+    Returns:    
+        brain_figure : nilearn plotting object
+    """
     # Load the MNI template
     template_img = datasets.load_mni152_template()
 
     # Load the MNI template
-    # template_img = nib.load(mni_template_path)
     template_data = template_img.get_fdata()
     affine = template_img.affine
     # Set all values in the template to 0
