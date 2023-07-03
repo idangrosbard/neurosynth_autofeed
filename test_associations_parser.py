@@ -1,4 +1,4 @@
-from . import AssociationsParser
+from src.neurosynthpy.parsers import AssociationsParser
 import pandas as pd
 import pytest
 import numpy as np

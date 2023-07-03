@@ -92,15 +92,15 @@ class Validator():
         Returns:
             True if the coordinates are valid, False otherwise
         """
-        if not Validator.validate_type(coordinates):
+        if not self.validate_type(coordinates):
             raise ValueError("Coordinates must be in a NumPy array")
-        if not Validator.validate_not_empty(coordinates):
+        if not self.validate_not_empty(coordinates):
             raise ValueError("Coordinates must not be empty")
-        if not Validator.validate_integers(coordinates):
+        if not self.validate_integers(coordinates):
             raise ValueError("There must be 3 coordinates for each point")
-        if not Validator.validate_integers(coordinates):
+        if not self.validate_integers(coordinates):
             raise ValueError("Coordinates must be integers")
-        if not Validator.validate_range(coordinates):
+        if not self.validate_range(coordinates):
             raise ValueError("Coordinates must be in the range of the board")
         print("Coordinates are valid - all tests passed")
 
