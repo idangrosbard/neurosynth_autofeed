@@ -56,19 +56,20 @@ Dependencies that you'll need to set up before running our project:
 
 After installation you can use `api.get` to quary your coordinates.
 
-Specifiy `associations` or `studies` to get the metadata you want.
+Specifiy `associations` or `studies` to get the metadata you want:
 
   
 
 
 
-    from neurosynthpy import api, plotting
+    from neurosynthpy import api
     
     associations = api.get(np.array([[-10,-10,-10], [0,0,0], [10,10,10]]), 'associations')
     studies = api.get(np.array([[-10,-10,-10], [0,0,0], [10,10,10]]), 'studies')
       
 
-Next follow this code to plot and visualize the data extracted, for example:
+Next, follow this code to plot and visualize the data extracted. 
+For example:
 
   
 
@@ -80,20 +81,19 @@ Next follow this code to plot and visualize the data extracted, for example:
 
   
 
--  **Validator**: validation of the input coordinates.
+-  **Validator**: Validation of the input coordinates.
 
--  **Querier**: quary the coordinates for the associations and studies data.
+-  **Querier**: Quary the coordinates for the associations and studies data.
 
--  **Parser**: parse json data to panda DataFrames.
+-  **Parser**: Parse json data to panda DataFrames.
 
 -  **Ploter**: Create different plots of the data extracted.
   
 ## Functions
 
-Automated functions for the user:
 
 **Query:**
-| Function | Explanation 2 |
+| Function | Explanation |
 | -------- | -------- | 
 | api.get(coordinates, type('associations' or 'studies'))  | Quaring Neurosynth datebase -> pandas.DataFrame   |
 
@@ -108,7 +108,7 @@ Automated functions for the user:
 
 ## Limitations
 
-Right now our beta version doesn't support very large datasets (for querying multiple voxels) in oder to reduce number of http requests on the server so we don't recommand using the package for more than 1000 coordinates but stayed tuned!
+Right now our beta version doesn't support very large datasets (for querying multiple voxels) in oder to reduce number of http requests on the server so we don't recommand using the package for more than 1000 coordinates but stay tuned!
 
 
 ## Contact
