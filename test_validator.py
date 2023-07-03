@@ -1,6 +1,6 @@
 import pytest
 import numpy as np
-from validator import Validator
+from src.neurosynthpy.validator import Validator
 
 """
 Tests for the Validator class

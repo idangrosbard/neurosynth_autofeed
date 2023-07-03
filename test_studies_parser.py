@@ -1,4 +1,4 @@
-from . import StudiesParser
+from src.neurosynthpy.parsers import StudiesParser
 import pandas as pd
 import pytest
 
