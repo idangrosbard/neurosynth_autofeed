@@ -1,4 +1,4 @@
-from plot_coordinates import plot_anatomical_voi
+from .plot_coordinates import plot_anatomical_voi
 import pandas as pd
 import numpy as np
 
