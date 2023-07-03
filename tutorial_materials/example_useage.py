@@ -24,6 +24,7 @@ if __name__ == '__main__':
     voxels_coords_MNI = np.round(voxels_coords_MNI).astype(int)
 
 
-    # save voxels coordinates to a csv file 
-    np.savetxt(r'.\tutorial_materials\voxels_coords_MNI.csv', voxels_coords_MNI, delimiter=',')
+    # save voxels coordinates to a csv file, without decimal points
+    np.savetxt(r'.\tutorial_materials\voxels_coords_MNI.csv', voxels_coords_MNI, delimiter=',', fmt='%i')
+
 
